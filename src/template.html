@@ -11,12 +11,12 @@
 <body>
     <header>
         <h1>Todo</h1>
-        <span>+ Create Project</span>
-        <dialog>
+        <span id="create-project-button">+ Create Project</span>
+        <dialog id="new-project-modal">
             <form action="get">
                 <label for="project-name">Name:</label>
-                <input type="text" name="project-name" id="project-name">
-                <button>Add</button>
+                <input type="text" name="project-name" id="project-name" required>
+                <button id="project-name-add">Add</button>
             </form>
         </dialog>
     </header>
@@ -56,16 +56,16 @@
             </dialog>
             <div>
                 <h1>Tasks</h1>
-                <span>+ Create Task</span>
+                <span id="create-task-button">+ Create Task</span>
             </div>
             <ul id="task-list">
-                <li class="task">
+                <!-- <li class="task">
                     <span class="checker active"></span><span class="task-name">Hi</span><span>27th March, 3 PM</span>
                 </li>
                 <li class="task expanded">
                     <span class="checker"></span><span class="task-name">Hi</span><img src="assets/expand.svg" alt="expand">
                     <span>Description</span>
-                    <span>Due Date</span>
+                    <span>Due Date</span> -->
                 </li>
             </ul>
         </div>
