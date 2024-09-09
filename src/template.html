@@ -12,6 +12,13 @@
     <header>
         <h1>Todo</h1>
         <span>+ Create Project</span>
+        <dialog>
+            <form action="get">
+                <label for="project-name">Name:</label>
+                <input type="text" name="project-name" id="project-name">
+                <button>Add</button>
+            </form>
+        </dialog>
     </header>
     <main>
         <nav>
@@ -19,8 +26,34 @@
             <ol id="project-list" role="list">
                 <li class="active-project">Default Project</li>
             </ol>
+            <dialog>
+                <form action="get">
+                    <label for="new-project-name">Name:</label>
+                    <input type="text" name="new-project-name" id="new-project-name">
+                    <div>
+                        <button>Save</button>
+                        <button>Delete</button>
+                    </div>
+                </form>
+            </dialog>
         </nav>
         <div class="container">
+            <dialog>
+                <form action="get">
+                    <label for="task-name">Name:</label>
+                    <input type="text" name="task-name" id="task-name" required>
+                    <label for="task-description">Description:</label>
+                    <textarea name="task-description" id="task-description"></textarea>
+                    <label for="task-due">Due Date:</label>
+                    <input type="datetime-local" name="task-due" id="task-due">
+                    <label for="task-priority">Task priority:</label>
+                    <input type="number" name="task-priority" id="task-priority" max="99999">
+                    <div>
+                        <button>Save</button>
+                        <button>Delete</button>
+                    </div>
+                </form>
+            </dialog>
             <div>
                 <h1>Tasks</h1>
                 <span>+ Create Task</span>

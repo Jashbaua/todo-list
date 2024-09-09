@@ -70,6 +70,39 @@ header span{
     font-size: var(--bigfont);
 }
 
+dialog{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color3);
+    box-shadow: 0px 0px 5px 4px #62cea3;
+}
+
+dialog form{
+    display: grid;
+    grid-template: 1fr 1fr/50px 1fr;
+    place-items: center;
+    gap: 10px;
+}
+
+dialog input, dialog textarea{
+    border: none;
+    border-radius: 10px;
+    padding: 4px 10px;
+    outline: none;
+    background-color: var(--color1);
+}
+dialog button{
+    grid-column: 1/-1;
+    border: none;
+    background-color: var(--color5);
+    padding: 10px 40px;
+    border-radius: 10px;
+}
+
 /* main */
 
 main{
@@ -96,6 +129,9 @@ main nav li{
 main nav .active-project{
     background-color: var(--color2);
 }
+dialog div{
+    grid-column: 1/-1;
+}
 
 /* Tasks */
 
@@ -121,7 +157,10 @@ main nav .active-project{
     flex-direction: column;
     gap: 10px;
 }
-
+.container dialog form{
+    grid-template: 40px 1fr 40px 40px 50px/100px 1fr;
+    place-items: center stretch;
+}
 .task{
     background-color: var(--color2);
     border-radius: 10px;
