@@ -1,0 +1,144 @@
+:root{
+    --biggerfont:3.5rem;
+    --bigfont:2.5rem;
+    --normalfont:1.5rem;
+    --smallfont:1.2rem;
+    --color0:#ecfdf5;
+    --color1:#d1fae5;
+    --color2:#a7f3d0;
+    --color3:#6ee7b7;
+    --color4:#34d399;
+    --color5:#10b981;
+    --color6:#059669;
+    --color7:#047857;
+    --color8:#065f46;
+    --color9:#064e3b;
+    --color10:#022c22;
+    --headingcolor:#022c22;
+    --subtextcolor:#065f46;
+}
+html{
+    height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--color0);
+  font-family: 'Roboto',system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  color: var(--headingcolor);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+ol[role="list"], ul[role="list"] {
+  padding-inline: 0;
+}
+
+p, h1, h2, h3, h4, h5, h6, input, button, textarea, select,ul {
+  font: inherit;
+  overflow-wrap: break-word;
+}
+
+img, picture, video, canvas, svg {
+  max-width: 100%;
+}
+
+/* header */
+header{
+    background-color: var(--color5);
+    padding: 0px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header h1{
+    font-size: var(--biggerfont);
+    font-weight: 900;
+}
+header span{
+    font-size: var(--bigfont);
+}
+
+/* main */
+
+main{
+    flex: 1;
+    display: flex;
+}
+
+/* nav */
+
+main nav{
+    background-color: var(--color3);
+    width: 250px;
+    padding: 20px 0px 0px 0px;
+}
+main nav h1{
+    font-size: var(--normalfont);
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+main nav li{
+    margin-left: 30px;
+    padding-left: 5px;
+}
+main nav .active-project{
+    background-color: var(--color2);
+}
+
+/* Tasks */
+
+.container{
+    flex:1;
+    padding: 20px;
+}
+.container div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container h1{
+    font-size: var(--normalfont);
+}
+.container div span{
+    font-size: var(--normalfont);
+}
+.container ul{
+    padding-top: 15px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task{
+    background-color: var(--color2);
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: flex;
+    font-size: var(--smallfont);
+    align-items: center;
+}
+.task .checker{
+    aspect-ratio: 1/1;
+    width: 20px;
+    background-color: var(--color0);
+    margin-right: 20px;
+}
+.task .checker.active{
+    background-color: var(--color6);
+}
+.task .task-name{
+    margin-right: auto;
+}

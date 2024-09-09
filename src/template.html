@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Todo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <header>
+        <h1>Todo</h1>
+        <span>+ Create Project</span>
+    </header>
+    <main>
+        <nav>
+            <h1>My Projects</h1>
+            <ol id="project-list" role="list">
+                <li class="active-project">Default Project</li>
+            </ol>
+        </nav>
+        <div class="container">
+            <div>
+                <h1>Tasks</h1>
+                <span>+ Create Task</span>
+            </div>
+            <ul id="task-list">
+                <li class="task">
+                    <span class="checker active"></span><span class="task-name">Hi</span><span>27th March, 3 PM</span>
+                </li>
+                <li class="task expanded">
+                    <span class="checker"></span><span class="task-name">Hi</span><img src="assets/expand.svg" alt="expand">
+                    <span>Description</span>
+                    <span>Due Date</span>
+                </li>
+            </ul>
+        </div>
+    </main>
 </body>
 </html>
