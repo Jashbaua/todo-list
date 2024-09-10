@@ -3,8 +3,11 @@ import * as projects from './projects.js'
 import * as ui from './ui.js'
 import { format } from "date-fns"
 
-projects.create('Default Project')
-projects.selectProject('Default Project')
+if(localStorage.length==0){
+    projects.create('Default Project')
+    projects.selectProject('Default Project')
+}
+else projects.fetchLocalStorage()
 ui.refreshContent(projects.getProjects())
 
 function createProjectClicked(){
@@ -41,21 +44,35 @@ function projectClicked(projectName){
 }
 function projectDeleteClicked(){
     projects.deleteProject()
+    projects.removeSelected()
     ui.refreshContent(projects.getProjects())
 }
 function createTaskClicked(){
+    if(projects.selected())
     ui.showCreateTaskModal()
 }
 function taskSaveClicked(name,description,due,priority){
     let formattedDue = due?format(new Date(due), 'M/d/yyyy, h:mmaaa'):'';    
-    projects.saveTask(name,description,formattedDue,priority)
+    if(projects.isTaskSelected()){
+        projects.modifyTask(name,description,formattedDue,priority)
+        projects.toggleSelectTask()
+    }
+    else projects.saveTask(name,description,formattedDue,priority)
     ui.refreshContent(projects.getProjects())
 }
 function taskCheckerClicked(taskId){
     projects.toggleTaskFinished(taskId)
     ui.refreshContent(projects.getProjects())
 }
-function taskDeleteClicked(){}
+function taskClicked(taskId){
+    ui.showCreateTaskModal()
+    ui.populateTaskModal(projects.getTask(taskId))
+    projects.toggleSelectTask(taskId)
+}
+function taskDeleteClicked(){
+    if(projects.isTaskSelected())projects.deleteTask('')
+    ui.refreshContent(projects.getProjects())
+}
 
 
-export{taskCheckerClicked,taskDeleteClicked,taskSaveClicked,createTaskClicked,projectDeleteClicked,createProjectClicked,projectNameFilled,projectNameAdded,projectClicked,projectEdited,editedProjectSaved}
+export{taskClicked,taskCheckerClicked,taskDeleteClicked,taskSaveClicked,createTaskClicked,projectDeleteClicked,createProjectClicked,projectNameFilled,projectNameAdded,projectClicked,projectEdited,editedProjectSaved}
