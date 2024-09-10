@@ -13,10 +13,10 @@
         <h1>Todo</h1>
         <span id="create-project-button">+ Create Project</span>
         <dialog id="new-project-modal">
-            <form action="get">
+            <form method="dialog">
                 <label for="project-name">Name:</label>
                 <input type="text" name="project-name" id="project-name" required>
-                <button id="project-name-add">Add</button>
+                <button type="submit" id="project-name-add">Add</button>
             </form>
         </dialog>
     </header>
@@ -24,15 +24,15 @@
         <nav>
             <h1>My Projects</h1>
             <ol id="project-list" role="list">
-                <li class="active-project">Default Project</li>
+                <!-- <li class="active-project">Default Project</li> -->
             </ol>
-            <dialog>
-                <form action="get">
+            <dialog id="edit-project-modal">
+                <form method="dialog">
                     <label for="new-project-name">Name:</label>
-                    <input type="text" name="new-project-name" id="new-project-name">
+                    <input type="text" name="new-project-name" id="new-project-name" required>
                     <div>
-                        <button>Save</button>
-                        <button>Delete</button>
+                        <button id="edit-project-name">Save</button>
+                        <button id="delete-project">Delete</button>
                     </div>
                 </form>
             </dialog>

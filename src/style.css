@@ -125,6 +125,10 @@ main nav h1{
 main nav li{
     margin-left: 30px;
     padding-left: 5px;
+    background-color: var(--color3);
+}
+main nav li:hover{
+    filter: brightness(90%);
 }
 main nav .active-project{
     background-color: var(--color2);
