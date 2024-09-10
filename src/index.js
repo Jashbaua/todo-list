@@ -51,7 +51,11 @@ function taskSaveClicked(name,description,due,priority){
     projects.saveTask(name,description,formattedDue,priority)
     ui.refreshContent(projects.getProjects())
 }
+function taskCheckerClicked(taskId){
+    projects.toggleTaskFinished(taskId)
+    ui.refreshContent(projects.getProjects())
+}
 function taskDeleteClicked(){}
 
 
-export{taskDeleteClicked,taskSaveClicked,createTaskClicked,projectDeleteClicked,createProjectClicked,projectNameFilled,projectNameAdded,projectClicked,projectEdited,editedProjectSaved}
+export{taskCheckerClicked,taskDeleteClicked,taskSaveClicked,createTaskClicked,projectDeleteClicked,createProjectClicked,projectNameFilled,projectNameAdded,projectClicked,projectEdited,editedProjectSaved}
