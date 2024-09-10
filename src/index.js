@@ -38,6 +38,10 @@ function projectClicked(projectName){
     projects.selectProject(projectName)
     ui.refreshContent(projects.getProjects())
 }
+function projectDeleteClicked(){
+    projects.deleteProject()
+    ui.refreshContent(projects.getProjects())
+}
 
 
-export{createProjectClicked,projectNameFilled,projectNameAdded,projectClicked,projectEdited,editedProjectSaved}
+export{projectDeleteClicked,createProjectClicked,projectNameFilled,projectNameAdded,projectClicked,projectEdited,editedProjectSaved}
