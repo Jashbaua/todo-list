@@ -38,8 +38,8 @@
             </dialog>
         </nav>
         <div class="container">
-            <dialog>
-                <form action="get">
+            <dialog id="task-modal">
+                <form method="dialog" id="task-modal-form">
                     <label for="task-name">Name:</label>
                     <input type="text" name="task-name" id="task-name" required>
                     <label for="task-description">Description:</label>
@@ -47,10 +47,10 @@
                     <label for="task-due">Due Date:</label>
                     <input type="datetime-local" name="task-due" id="task-due">
                     <label for="task-priority">Task priority:</label>
-                    <input type="number" name="task-priority" id="task-priority" max="99999">
+                    <input type="number" name="task-priority" id="task-priority" max="3">
                     <div>
-                        <button>Save</button>
-                        <button>Delete</button>
+                        <button id="task-save-button">Save</button>
+                        <button id="task-delete-button">Delete</button>
                     </div>
                 </form>
             </dialog>
@@ -59,13 +59,13 @@
                 <span id="create-task-button">+ Create Task</span>
             </div>
             <ul id="task-list">
-                <!-- <li class="task">
-                    <span class="checker active"></span><span class="task-name">Hi</span><span>27th March, 3 PM</span>
+                <li class="task">
+                    <span class="checker"></span><span class="task-name"></span><span class="task-due"></span>
                 </li>
                 <li class="task expanded">
                     <span class="checker"></span><span class="task-name">Hi</span><img src="assets/expand.svg" alt="expand">
                     <span>Description</span>
-                    <span>Due Date</span> -->
+                    <span>Due Date</span>
                 </li>
             </ul>
         </div>

@@ -185,3 +185,10 @@ dialog div{
 .task .task-name{
     margin-right: auto;
 }
+
+.task.priority1{
+    background-color: var(--color6);
+}
+.task.priority2{
+    background-color: var(--color4);
+}
