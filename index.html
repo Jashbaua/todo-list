@@ -1,1 +1,218 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Todo</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"><script defer="defer" src="main.js"></script></head><body><header><h1>Todo</h1><span id="create-project-button">+ Create Project</span><dialog id="new-project-modal"><form method="dialog"><label for="project-name">Name:</label> <input name="project-name" id="project-name" required> <button type="submit" id="project-name-add">Add</button></form></dialog></header><main><nav><h1>My Projects</h1><ol id="project-list" role="list"></ol><dialog id="edit-project-modal"><form method="dialog"><label for="new-project-name">Name:</label> <input name="new-project-name" id="new-project-name" required><div><button id="edit-project-name">Save</button> <button id="delete-project">Delete</button></div></form></dialog></nav><div class="container"><dialog id="task-modal"><form method="dialog" id="task-modal-form"><label for="task-name">Name:</label> <input name="task-name" id="task-name" required> <label for="task-description">Description:</label> <textarea name="task-description" id="task-description"></textarea> <label for="task-due">Due Date:</label> <input type="datetime-local" name="task-due" id="task-due"> <label for="task-priority">Task priority:</label> <input type="number" name="task-priority" id="task-priority" max="3"><div><button id="task-save-button">Save</button> <button id="task-delete-button">Delete</button></div></form></dialog><div><h1>Tasks</h1><span id="create-task-button">+ Create Task</span></div><ul id="task-list"><li class="task"><span class="checker"></span><span class="task-name"></span><span class="task-due"></span></li><li class="task expanded"><span class="checker"></span><span class="task-name">Hi</span><img src="ba4b3f743d15db301277.svg" alt="expand"> <span>Description</span> <span>Due Date</span></li></ul></div></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+    <title>Pan Do App</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png" />
+  <script defer src="bundled2958714080564e7d864.js"></script></head>
+  <body>
+    <div 5id="content">
+      <header id="header" class="header">
+        <div id="container-burger-menu" class="container-burger-menu">
+          <a href="#" class="button-burger-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </a>
+        </div>
+        <h1>Pan Do App</h1>
+        <div class="score">
+          <div class="character-info-container">
+            <h3 class="completed-tasks-number" data-completed></h3>
+            <p class="character-title" data-character-title>Novice</p>
+          </div>
+
+          <div class="container-character">
+            <img
+              id="character-img"
+              class="character-img"
+              src="novice.png"
+              data-character
+              alt="character avatar"
+            />
+          </div>
+        </div>
+      </header>
+      <main id="main" class="main">
+        <div id="sidebar" class="sidebar">
+          <ul id="project-list" class="project-list"></ul>
+          <button id="button-add-project" class="button-add-project">
+            <span></span>
+            Add project
+          </button>
+          <form action="#" id="dialog-add-project" class="dialog-add-project">
+            <input
+              type="text"
+              id="input-add-project-dialog"
+              class="input-add-project-dialog"
+              minlength="3"
+              maxlength="15"
+              size="15"
+              placeholder="New project"
+              aria-label="New project"
+              required
+            />
+            <div id="buttons-dialog" class="buttons-dialog">
+              <button
+                type="button"
+                id="button-cancel-project-dialog"
+                class="button-cancel-project-dialog"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                form="dialog-add-project"
+                id="button-add-project-dialog"
+                class="button-add-project-dialog"
+              >
+                Add project
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="tasks-wrapper">
+          <div id="tasks" class="tasks">
+            <div id="tasks-container" class="tasks-container"></div>
+            <button id="button-add-task" class="button-add-task">
+              <span></span>
+              Add task
+            </button>
+            <div id="dialog-add-task" class="dialog-add-task">
+              <form action="#" id="form-add-task" class="form-add-task">
+                <div class="task-text">
+                  <input
+                    type="text"
+                    id="task-name"
+                    class="task-name"
+                    name="name"
+                    placeholder="Task name*"
+                    required="true"
+                  />
+                </div>
+                <div class="optional-data">
+                  <div class="datePicker">
+                    <input
+                      type="date"
+                      id="task-due-date"
+                      class="task-due-date"
+                      name="date"
+                      value=""
+                      onchange="this.setAttribute('value', this.value);"
+                    />
+                    <label for="task-due-date">Date</label>
+                  </div>
+                  <select name="priority" id="priority" class="task-priority">
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                    <option value="none">No priority</option>
+                    <option value="priority" disabled selected hidden>
+                      Priority
+                    </option>
+                  </select>
+                </div>
+              </form>
+              <div
+                id="container-dialog-buttons"
+                class="container-dialog-buttons"
+              >
+                <button
+                  type="button"
+                  id="button-dialog-cancel-task"
+                  class="button-dialog-cancel-task"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  form="form-add-task"
+                  id="button-dialog-add-task"
+                  class="button-dialog-add-task"
+                >
+                  Add task
+                </button>
+              </div>
+            </div>
+            <div id="dialog-edit-task" class="dialog-edit-task">
+              <form action="#" id="form-edit-task" class="form-edit-task">
+                <div class="task-text">
+                  <input
+                    type="text"
+                    id="edit-task-name"
+                    class="task-name"
+                    name="name"
+                    placeholder="Task name*"
+                    required="true"
+                  />
+                </div>
+                <div class="optional-data">
+                  <div class="datePicker">
+                    <input
+                      type="date"
+                      id="edit-task-date"
+                      class="task-due-date"
+                      name="date"
+                      value=""
+                      onchange="this.setAttribute('value', this.value);"
+                    />
+                    <label for="edit-task-date">Due Date</label>
+                  </div>
+                  <select
+                    name="priority"
+                    id="priority-edit"
+                    class="task-priority"
+                  >
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                    <option value="none">No priority</option>
+                    <option value="priority" disabled selected hidden>
+                      Priority
+                    </option>
+                  </select>
+                </div>
+              </form>
+              <div
+                id="container-dialog-buttons"
+                class="container-dialog-buttons"
+              >
+                <button
+                  type="button"
+                  id="button-dialog-cancel-edit-task"
+                  class="button-dialog-cancel-edit-task"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  form="form-edit-task"
+                  id="button-dialog-edit-task"
+                  class="button-dialog-edit-task"
+                >
+                  Update task
+                </button>
+              </div>
+            </div>
+            <section id="quote" class="quote">
+              <div>Inner peace...</div>
+              <div>
+                Completing tasks earns bamboo, which makes your panda even
+                stronger.
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+      <footer id="footer" class="footer">
+        <p id="copyright"></p>
+      </footer>
+    </div>
+  </body>
+</html>
